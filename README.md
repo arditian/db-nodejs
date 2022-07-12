@@ -5,8 +5,10 @@
 - Delete data from db
 - Realtime chat with socket.io
 
-![db1](./db1.png)
-![db2](./db2.png)
-![rc](./rc.png)
+![db1](./images/db1.png)
+
+![db2](./images/db2.png)
+
+![rc](./images/rc.png)
 
 *credit: Dea Afrizal*
