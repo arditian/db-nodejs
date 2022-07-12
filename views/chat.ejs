@@ -1,3 +1,4 @@
+<!--Realtime chatting-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
 <div>
-    <!-- login -->
+    <!-- form login -->
     <div class="container mt-4" style="height: auto" id="loginContainer">
         <h3><%= loginTitle %></h3>
         <form id="loginForm">
@@ -17,7 +18,7 @@
         </form>
     </div>
 
-    <!-- chat -->
+    <!-- form chatting -->
     <div class="container mt-4" style="height: auto" id="chatContainer">
         <h3><%= chatroomTitle %></h3>
         <form id="chatForm">
@@ -27,6 +28,7 @@
         </form>
     </div>
 
+<!--login, send button and id for user-->
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
@@ -42,7 +44,7 @@
         const messageList = document.getElementById("messageList")
         
         chatContainer.style.display = "none"
-
+        
         loginButton.addEventListener("click", (e) => {
             e.preventDefault()
             chatContainer.style.display = "block"
@@ -56,9 +58,7 @@
                     id: socket.id,
                     message: message.value
                 }
-
                 socket.emit("message", data)
-
                 let chatList = document.createElement("p")
                 chatList.style.fontSize = "24px"
                 chatList.textContent = message.value
@@ -66,7 +66,7 @@
                 message.value = ''
             }
         })
-
+        
         socket.on("message", (id, message) => {
             let broadcast = document.createElement('p')
             broadcast.style.textAlign = "right"
@@ -74,7 +74,6 @@
             broadcast.textContent = `${message} *(${id})`
             messageList.appendChild(broadcast)
         })
-        
     </script>
 </body>
 </html>

@@ -20,12 +20,12 @@ const db = mysql.createConnection({
     password: ""
 })
 
-//db connection
+//create db connection
 db.connect((err) => {
     if (err) throw err
     console.log("Databse connected ...")
 
-    //for get data
+    //for get data from database
     app.get("/", (req, res) => {
         const sql = "SELECT * FROM siswa"
         db.query(sql, (err, result) => {
@@ -34,7 +34,7 @@ db.connect((err) => {
         })
     })
 
-    //real-time chat
+    //real-time chat  
     app.get("/chat", (req, res) => {
         res.render("chat", { 
             loginTitle: "MASUK FORUM", 
@@ -42,7 +42,7 @@ db.connect((err) => {
         })
     })
 
-    //for insert data
+    //for insert data to database
     app.post("/tambah", (req, res) => {
         const insertSql = `INSERT INTO siswa (nama, kelas) VALUES ('${req.body.nama}', '${req.body.kelas}');`
         db.query(insertSql, (err, result) => {
@@ -51,7 +51,7 @@ db.connect((err) => {
         })
     })
 
-    //for delete data
+    //for delete data from database
     app.post("/hapus", (req, res) => {
         const deleteSql = `DELETE FROM siswa WHERE nama="${req.body.hapusnama}";`
         db.query(deleteSql, (err, result) => {
@@ -61,7 +61,7 @@ db.connect((err) => {
     })
 })
 
-//socket io connection
+//socket io connection and set id
 io.on("connection", (socket) => {
     socket.on("message", (data) => {
         const { id, message } = data

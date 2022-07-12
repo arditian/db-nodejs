@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <h3><%= title %></h3>
+        <!--table for data from db-->
         <table class="table">
             <thead>
               <tr>
@@ -29,8 +30,9 @@
             </tbody>
         </table>
         <hr>
+        <!--form and label for insert data-->
         <form action="/tambah" method="post">
-            <h3>Tambah Data</h3>
+            <h3>Tambah Data</h3>            
             <div class="row mb-3">
               <label for="nama" class="col-sm-2 col-form-label">Nama</label>
               <div class="col-sm-10">
@@ -46,6 +48,7 @@
             <input type="submit" class="btn btn-danger" value="Tambah"/>
         </form>
         <hr>
+        <!--form and label for delete data-->
         <form action="/hapus" method="post">
           <h3>Hapus Data</h3>
           <div class="row mb-3">
@@ -57,6 +60,7 @@
           <input type="submit" class="btn btn-danger" value="Hapus"/>
       </form>
       <hr>
+      <!--link to /chat-->
       <a class="float-end mb-4" href="/chat">Forum Diskusi</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
