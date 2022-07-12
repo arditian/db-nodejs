@@ -8,7 +8,7 @@
 ### Table from Database 
 ![db1](./images/db1.png)
 
-### From and button for add and delete data
+### Form and button for add and delete data
 ![db2](./images/db2.png)
 
 ### Realtime chat
